@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
 <title>Mostafa Sayed QA Portfolio</title>
 <meta name="description" content="Mostafa Sayed, Senior Software QA Engineer. 5+ years in manual, API, mobile, web, and automation testing. ISTQB CTFL.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,6 +12,7 @@
 <style>
 /* Layout: light-blue page, hero with a "test report" card, icon-led sections, white cards. */
 :root {
+  color-scheme: light;
   --bg: #ffffff;
   --surface: #f6faff;
   --on-accent: #ffffff;
@@ -29,16 +31,6 @@
   --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
   --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0d1824; --surface: #132232; --fg: #e4eef8; --muted: #9bb0c4; --line: #23384c;
-    --accent: #6fb2ec; --accent-soft: #17304a; --pass: #4cc38a; --pass-soft: #143528; --bug: #f08a5a; --bug-soft: #3a2116; --on-accent: #0d1824; --n1: #6fb2ec; --n2: #4fd1e0; --n3: #9aa4ff; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0d1824; --surface: #132232; --fg: #e4eef8; --muted: #9bb0c4; --line: #23384c;
-  --accent: #6fb2ec; --accent-soft: #17304a; --pass: #4cc38a; --pass-soft: #143528; --bug: #f08a5a; --bug-soft: #3a2116; --on-accent: #0d1824; --n1: #6fb2ec; --n2: #4fd1e0; --n3: #9aa4ff; color-scheme: dark;
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--fg); font: 400 1.0625rem/1.6 var(--body); }
@@ -203,14 +195,14 @@ footer { padding-block: 28px; border-top: 1px solid var(--line); color: var(--mu
   @keyframes sway { from { transform: rotate(-10deg); } to { transform: rotate(10deg); } }
   @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
   @keyframes wiggle { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-14deg); } 75% { transform: rotate(14deg); } }
-  .foot-icons .ic { animation: hop 2.5s ease-in-out infinite; }
+  .foot-icons .ic { animation: hop 1.6s ease-in-out infinite; }
   .foot-icons .ic:nth-child(2) { animation-delay: .2s; } .foot-icons .ic:nth-child(3) { animation-delay: .4s; } .foot-icons .ic:nth-child(4) { animation-delay: .6s; } .foot-icons .ic:nth-child(5) { animation-delay: .8s; }
   @keyframes hop { 0%,60%,100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
-  .bugline .ic { animation: wiggle 1.2s ease-in-out infinite; }
-  .section-head .badge .ic { animation: pulse-ic 3s ease-in-out infinite; }
+  .bugline .ic { animation: wiggle .8s ease-in-out infinite; }
+  .section-head .badge .ic { animation: pulse-ic 1.8s ease-in-out infinite; }
   @keyframes pulse-ic { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }
   .flow li:hover .n .ic, .case:hover .top .ic, .skill-card:hover h3 .ic, .cert:hover .ic, .stat:hover .ic { animation: wiggle .6s ease-in-out; }
-  .brand .ic { animation: pulse-ic 3s ease-in-out infinite; }
+  .brand .ic { animation: pulse-ic 1.8s ease-in-out infinite; }
   .job li .ic { animation: pop .4s ease both; animation-timeline: view(); animation-range: entry 10% entry 60%; }
   @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
   @keyframes pop { from { transform: scale(.4); opacity: 0; } to { transform: none; opacity: 1; } }
@@ -262,15 +254,15 @@ footer { padding-block: 28px; border-top: 1px solid var(--line); color: var(--mu
 </nav>
 
 <header class="hero" id="top">
-  <svg class="ic float" style="font-size:64px; top:24px; left:44%; --a:bob 6s"><use href="#i-bug"/></svg>
-  <svg class="ic float" style="font-size:44px; bottom:26px; left:3%; --a:bob 7.5s"><use href="#i-search"/></svg>
-  <svg class="ic float" style="font-size:52px; top:36px; right:3%; --a:pulse 4s"><use href="#i-check"/></svg>
-  <svg class="ic float" style="font-size:40px; bottom:40px; left:38%; --a:bob 8s"><use href="#i-shield"/></svg>
-  <svg class="ic float" style="font-size:36px; top:46%; left:1.5%; --a:sway 6s"><use href="#i-clip"/></svg>
-  <svg class="ic float" style="font-size:34px; bottom:18px; right:30%; --a:bob 5.5s"><use href="#i-phone"/></svg>
-  <svg class="ic float" style="font-size:46px; bottom:30px; right:2%; --a:spin 24s"><use href="#i-globe"/></svg>
-  <svg class="ic float" style="font-size:32px; top:20px; left:24%; --a:sway 7s"><use href="#i-code"/></svg>
-  <svg class="ic float" style="font-size:30px; top:52%; right:40%; --a:pulse 5s"><use href="#i-list"/></svg>
+  <svg class="ic float" style="font-size:64px; top:24px; left:44%; --a:bob 3.6s"><use href="#i-bug"/></svg>
+  <svg class="ic float" style="font-size:44px; bottom:26px; left:3%; --a:bob 4.5s"><use href="#i-search"/></svg>
+  <svg class="ic float" style="font-size:52px; top:36px; right:3%; --a:pulse 2.4s"><use href="#i-check"/></svg>
+  <svg class="ic float" style="font-size:40px; bottom:40px; left:38%; --a:bob 4.8s"><use href="#i-shield"/></svg>
+  <svg class="ic float" style="font-size:36px; top:46%; left:1.5%; --a:sway 3.6s"><use href="#i-clip"/></svg>
+  <svg class="ic float" style="font-size:34px; bottom:18px; right:30%; --a:bob 3.3s"><use href="#i-phone"/></svg>
+  <svg class="ic float" style="font-size:46px; bottom:30px; right:2%; --a:spin 14.4s"><use href="#i-globe"/></svg>
+  <svg class="ic float" style="font-size:32px; top:20px; left:24%; --a:sway 4.2s"><use href="#i-code"/></svg>
+  <svg class="ic float" style="font-size:30px; top:52%; right:40%; --a:pulse 3.0s"><use href="#i-list"/></svg>
   <div class="wrap hero-grid">
     <div class="hero-text">
       <span class="pill"><svg class="ic"><use href="#i-award"/></svg>ISTQB CTFL certified</span>
@@ -441,13 +433,13 @@ footer { padding-block: 28px; border-top: 1px solid var(--line); color: var(--mu
 </section>
 
 <section id="contact" class="has-floats">
-  <svg class="ic float" style="font-size:54px; top:20px; left:2%; --a:bob 6.5s"><use href="#i-bug"/></svg>
-  <svg class="ic float" style="font-size:46px; bottom:24px; right:4%; --a:pulse 4.5s"><use href="#i-check"/></svg>
-  <svg class="ic float" style="font-size:40px; top:28px; right:10%; --a:sway 6s"><use href="#i-search"/></svg>
-  <svg class="ic float" style="font-size:38px; bottom:30px; left:12%; --a:bob 7s"><use href="#i-shield"/></svg>
-  <svg class="ic float" style="font-size:42px; top:46%; right:1%; --a:spin 26s"><use href="#i-globe"/></svg>
-  <svg class="ic float" style="font-size:30px; bottom:16px; left:45%; --a:sway 7.5s"><use href="#i-code"/></svg>
-  <svg class="ic float" style="font-size:34px; top:12px; left:40%; --a:pulse 5.5s"><use href="#i-clip"/></svg>
+  <svg class="ic float" style="font-size:54px; top:20px; left:2%; --a:bob 3.9s"><use href="#i-bug"/></svg>
+  <svg class="ic float" style="font-size:46px; bottom:24px; right:4%; --a:pulse 2.7s"><use href="#i-check"/></svg>
+  <svg class="ic float" style="font-size:40px; top:28px; right:10%; --a:sway 3.6s"><use href="#i-search"/></svg>
+  <svg class="ic float" style="font-size:38px; bottom:30px; left:12%; --a:bob 4.2s"><use href="#i-shield"/></svg>
+  <svg class="ic float" style="font-size:42px; top:46%; right:1%; --a:spin 15.6s"><use href="#i-globe"/></svg>
+  <svg class="ic float" style="font-size:30px; bottom:16px; left:45%; --a:sway 4.5s"><use href="#i-code"/></svg>
+  <svg class="ic float" style="font-size:34px; top:12px; left:40%; --a:pulse 3.3s"><use href="#i-clip"/></svg>
   <div class="wrap">
     <div class="contact-card">
       <div class="section-head" style="margin-bottom:0"><span class="badge"><svg class="ic"><use href="#i-mail"/></svg></span><div><span class="label">Contact</span><h2>Get in touch</h2></div></div>
