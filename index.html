@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mostafa Sayed QA Portfolio</title>
+<meta name="description" content="Mostafa Sayed, Senior Software QA Engineer. 5+ years in manual, API, mobile, web, and automation testing. ISTQB CTFL.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: single column, wavy light-blue hero, then a QA flow strip, timeline, skills, cases, contact. */
+:root {
+  --bg: #f5f9fd;
+  --surface: #ffffff;
+  --fg: #12263a;
+  --muted: #4a6076;
+  --line: #d6e4f1;
+  --accent: #2b7bc4;
+  --accent-soft: #e2effa;
+  --wave: #9cc8ec;
+  --pass: #1f8a5b;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1824; --surface: #132232; --fg: #e4eef8; --muted: #9bb0c4; --line: #23384c;
+    --accent: #6fb2ec; --accent-soft: #17304a; --wave: #2c5577; --pass: #4cc38a; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1824; --surface: #132232; --fg: #e4eef8; --muted: #9bb0c4; --line: #23384c;
+  --accent: #6fb2ec; --accent-soft: #17304a; --wave: #2c5577; --pass: #4cc38a; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 1.0625rem/1.6 var(--body); }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 980px; margin: 0 auto; padding-inline: 20px; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(1.6rem, 3vw, 2rem); font-weight: 700; }
+h3 { font-size: 1.2rem; font-weight: 700; }
+p { margin: 0; }
+.label { font: 500 0.75rem/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+section { padding-block: 64px; }
+section + section { border-top: 1px solid var(--line); }
+.section-head { display: grid; gap: 10px; margin-bottom: 32px; }
+
+/* Nav */
+nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.brand { font: 700 1.05rem var(--display); color: var(--fg); text-decoration: none; }
+.nav-links { display: flex; gap: 22px; flex-wrap: wrap; }
+.nav-links a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+.nav-links a:hover { color: var(--accent); }
+@media (max-width: 640px) { .nav-links { display: none; } }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; padding-block: 88px 72px; border-top: 0; }
+.waves { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.waves path { fill: none; stroke: var(--wave); stroke-width: 2; opacity: 0.7; }
+.hero .wrap { position: relative; display: grid; gap: 22px; }
+.hero h1 { font-size: clamp(2.6rem, 7vw, 4.4rem); font-weight: 700; letter-spacing: -0.02em; }
+.hero .role { font: 600 clamp(1.15rem, 2.4vw, 1.4rem) var(--body); color: var(--accent); }
+.hero .intro { max-width: 60ch; color: var(--muted); font-size: 1.15rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px; font-weight: 600; text-decoration: none; border: 1.5px solid var(--accent); font-size: 1rem; cursor: pointer; font-family: var(--body); }
+.btn.primary { background: var(--accent); color: var(--bg); }
+.btn.ghost { background: var(--surface); color: var(--accent); }
+.btn:hover { filter: brightness(1.08); }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 20px; color: var(--muted); font-size: 0.95rem; }
+
+/* Numbers */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 36px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: grid; gap: 4px; }
+.stat b { font: 700 1.8rem/1.1 var(--display); color: var(--fg); font-variant-numeric: tabular-nums; }
+.stat span { color: var(--muted); font-size: 0.95rem; }
+@media (max-width: 760px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+
+/* About + flow */
+.about { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: start; }
+.about > * { min-width: 0; }
+.about p + p { margin-top: 14px; }
+.flow { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.flow li { display: grid; grid-template-columns: 44px 1fr; gap: 14px; padding-block: 12px; position: relative; }
+.flow li:not(:last-child)::after { content: ""; position: absolute; left: 21px; top: 50px; bottom: -10px; width: 2px; background: var(--line); }
+.flow .n { width: 44px; height: 44px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font: 500 0.85rem var(--mono); }
+.flow strong { display: block; font-family: var(--display); font-size: 1.05rem; }
+.flow span { color: var(--muted); font-size: 0.97rem; }
+@media (max-width: 760px) { .about { grid-template-columns: 1fr; } }
+
+/* Experience */
+.timeline { display: grid; gap: 0; border-left: 2px solid var(--line); margin-left: 6px; }
+.job { position: relative; padding: 0 0 34px 28px; display: grid; gap: 8px; }
+.job:last-child { padding-bottom: 0; }
+.job::before { content: ""; position: absolute; left: -8px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 3px solid var(--accent); }
+.job-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline; }
+.job .where { color: var(--muted); font-weight: 600; }
+.job .when { font: 500 0.8rem var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.job ul { margin: 2px 0 0; padding-left: 20px; display: grid; gap: 6px; max-width: 72ch; }
+
+/* Cases */
+.cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.case { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.case .result { display: inline-flex; align-items: center; gap: 6px; font: 500 0.75rem var(--mono); color: var(--pass); letter-spacing: 0.04em; }
+.case .result::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--pass); }
+.case dl { margin: 0; display: grid; gap: 8px; }
+.case dt { font: 500 0.72rem var(--mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.case dd { margin: 0; }
+@media (max-width: 860px) { .cases { grid-template-columns: 1fr; } }
+
+/* Skills */
+.skills { display: grid; gap: 22px; }
+.skill-row { display: grid; grid-template-columns: 160px 1fr; gap: 14px; align-items: start; }
+.skill-row h3 { font-size: 1rem; padding-top: 5px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; min-width: 0; }
+.chip { background: var(--accent-soft); color: var(--fg); border-radius: 999px; padding: 5px 13px; font-size: 0.93rem; }
+@media (max-width: 640px) { .skill-row { grid-template-columns: 1fr; gap: 8px; } }
+
+/* Certs */
+.certs { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.cert { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: grid; gap: 6px; min-width: 0; }
+.cert .when { font: 500 0.8rem var(--mono); color: var(--muted); }
+@media (max-width: 640px) { .certs { grid-template-columns: 1fr; } }
+
+/* Contact */
+.contact { display: grid; gap: 18px; }
+.contact-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.email { font: 600 1.15rem var(--body); user-select: all; word-break: break-all; }
+#copy-status { color: var(--pass); font-size: 0.95rem; min-height: 1.4em; }
+footer { padding-block: 28px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .waves path { animation: drift 14s ease-in-out infinite alternate; }
+  .waves path:nth-child(2n) { animation-duration: 18s; }
+  @keyframes drift { from { transform: translateX(0); } to { transform: translateX(-40px); } }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Mostafa Sayed</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <svg class="waves" viewBox="0 0 1200 420" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M-60 300 C 140 250, 300 350, 520 300 S 900 240, 1260 290"/>
+    <path d="M-60 330 C 160 280, 320 380, 540 330 S 920 270, 1260 320"/>
+    <path d="M-60 360 C 180 310, 340 410, 560 360 S 940 300, 1260 350"/>
+    <path d="M-60 90 C 200 40, 380 140, 620 90 S 980 40, 1260 80"/>
+    <path d="M-60 120 C 220 70, 400 170, 640 120 S 1000 70, 1260 110"/>
+  </svg>
+  <div class="wrap">
+    <span class="label">ISTQB CTFL certified</span>
+    <h1>Mostafa Sayed</h1>
+    <p class="role">Senior Software QA Engineer</p>
+    <p class="intro">I test web, mobile, and API products and make sure they are ready for release. I have 5+ years of experience in manual and automation testing, using Cypress, Maestro, and Postman, and working in Agile teams.</p>
+    <div class="actions">
+      <a class="btn primary" href="Mostafa_Sayed_Senior_QA_Engineer_Resume.pdf" target="_blank" rel="noopener">Download CV</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/mostafasayed1" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="#contact">Contact me</a>
+    </div>
+    <div class="meta"><span>Cairo, Egypt</span><span>Open to new roles</span></div>
+  </div>
+</header>
+
+<main>
+<section id="about">
+  <div class="wrap">
+    <div class="about">
+      <div>
+        <div class="section-head"><span class="label">About</span><h2>Quality from requirements to release</h2></div>
+        <p>I am a Senior Software QA Engineer with 5+ years of experience in manual, API, mobile, web, and automation testing.</p>
+        <p>I build and maintain automated tests with Cypress for web and Maestro for mobile, test APIs with Postman, and track bugs in Jira and Azure DevOps. I work in Scrum teams and take part in sprint planning, daily stand-ups, and releases.</p>
+      </div>
+      <ol class="flow" aria-label="How I work">
+        <li><span class="n">01</span><div><strong>Requirements</strong><span>Join handovers and make requirements clear and testable.</span></div></li>
+        <li><span class="n">02</span><div><strong>Test Design</strong><span>Write test cases for integration and regression testing.</span></div></li>
+        <li><span class="n">03</span><div><strong>Automation</strong><span>Cypress and Maestro tests running in CI/CD.</span></div></li>
+        <li><span class="n">04</span><div><strong>Release</strong><span>RC testing, QA sign-off, and post-release checks.</span></div></li>
+      </ol>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>5+</b><span>years in QA</span></div>
+      <div class="stat"><b>70% → 99%</b><span>crash-free users</span></div>
+      <div class="stat"><b>50+</b><span>websites migrated and signed off</span></div>
+      <div class="stat"><b>CTFL</b><span>ISTQB certified</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head"><span class="label">Experience</span><h2>Where I have worked</h2></div>
+    <div class="timeline">
+      <article class="job">
+        <div class="job-top"><h3>Senior Software QA Engineer</h3><span class="when">May 2025 – Present</span></div>
+        <span class="where">K&amp;C (Client: Informa) · London, Remote</span>
+        <ul>
+          <li>Test the migration of 50+ enterprise event websites from Adobe Experience Manager (AEM) to Informa’s own CORE platform.</li>
+          <li>Prepare QA sign-off reports for each migrated website, used for formal approval before go-live.</li>
+          <li>Mentor junior QA engineers on test cases, bug reporting, and sign-off steps.</li>
+        </ul>
+      </article>
+      <article class="job">
+        <div class="job-top"><h3>Software QA Engineer</h3><span class="when">May 2022 – Jun 2025</span></div>
+        <span class="where">Camlist · London, Remote</span>
+        <ul>
+          <li>Increased crash-free users from 70% to 99% across Android and iOS with Firebase Crashlytics.</li>
+          <li>Built end-to-end mobile UI tests in Maestro and web tests in Cypress with BDD, running in CI/CD.</li>
+          <li>Led Release Candidate (RC) testing and post-release checks for Android, iOS, and web.</li>
+        </ul>
+      </article>
+      <article class="job">
+        <div class="job-top"><h3>Software QA Engineer (Part-time)</h3><span class="when">Nov 2022 – Sep 2023</span></div>
+        <span class="where">Qoodz · UAE, Remote</span>
+        <ul>
+          <li>Tested Android and iOS apps (functional, usability, and regression testing) against business requirements.</li>
+          <li>Tested APIs in Postman and worked with stakeholders to make requirements clear and testable.</li>
+        </ul>
+      </article>
+      <article class="job">
+        <div class="job-top"><h3>Software QA Engineer</h3><span class="when">Apr 2021 – Apr 2022</span></div>
+        <span class="where">Digital Roots · Kuwait, Remote</span>
+        <ul>
+          <li>Wrote and ran test cases for Android, iOS, and web apps, checking functionality, compatibility, and usability.</li>
+          <li>Tested APIs for correct responses, data accuracy, and backend communication.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-head"><span class="label">Selected work</span><h2>Projects I am proud of</h2></div>
+    <div class="cases">
+      <article class="case">
+        <span class="result">PASSED · Informa</span>
+        <h3>Website migration QA</h3>
+        <dl>
+          <div><dt>Challenge</dt><dd>Move 50+ event websites from AEM to the CORE platform without losing features, design, or content.</dd></div>
+          <div><dt>What I did</dt><dd>Tested navigation, redirects, forms, multilingual pages, and cross-browser support, and wrote a QA sign-off report for each site.</dd></div>
+          <div><dt>Result</dt><dd>Each site got formal approval before go-live.</dd></div>
+        </dl>
+      </article>
+      <article class="case">
+        <span class="result">PASSED · Camlist</span>
+        <h3>Mobile app stability</h3>
+        <dl>
+          <div><dt>Challenge</dt><dd>Only 70% of users had a crash-free experience on Android and iOS.</dd></div>
+          <div><dt>What I did</dt><dd>Reported defects and monitored crashes on Android and iOS with Firebase Crashlytics.</dd></div>
+          <div><dt>Result</dt><dd>Crash-free users went up to 99%.</dd></div>
+        </dl>
+      </article>
+      <article class="case">
+        <span class="result">PASSED · Camlist</span>
+        <h3>Automation in CI/CD</h3>
+        <dl>
+          <div><dt>Challenge</dt><dd>Manual regression before every release took a lot of time.</dd></div>
+          <div><dt>What I did</dt><dd>Built Maestro tests for mobile and Cypress tests with Cucumber/Gherkin for web, and ran them on every build.</dd></div>
+          <div><dt>Result</dt><dd>Less manual regression work before each release.</dd></div>
+        </dl>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head"><span class="label">Skills</span><h2>Tools and testing types</h2></div>
+    <div class="skills">
+      <div class="skill-row"><h3>Testing</h3><div class="chips">
+        <span class="chip">Functional</span><span class="chip">Exploratory</span><span class="chip">Regression</span><span class="chip">Integration</span><span class="chip">Smoke</span><span class="chip">UI</span><span class="chip">REST API</span><span class="chip">Mobile (Android/iOS)</span><span class="chip">Web</span><span class="chip">Cross-Browser</span><span class="chip">Responsive</span><span class="chip">Non-Functional</span><span class="chip">Website Migration Validation</span><span class="chip">Content Validation</span><span class="chip">Requirements Analysis</span>
+      </div></div>
+      <div class="skill-row"><h3>Automation</h3><div class="chips">
+        <span class="chip">Cypress</span><span class="chip">Playwright</span><span class="chip">Maestro (Mobile UI)</span><span class="chip">CI/CD</span>
+      </div></div>
+      <div class="skill-row"><h3>Tools</h3><div class="chips">
+        <span class="chip">Jira</span><span class="chip">Azure DevOps</span><span class="chip">Git</span><span class="chip">Postman</span><span class="chip">Firebase Crashlytics</span><span class="chip">Sentry</span><span class="chip">Confluence</span><span class="chip">Cucumber Studio</span><span class="chip">JMeter</span><span class="chip">Trello</span>
+      </div></div>
+      <div class="skill-row"><h3>Methodologies</h3><div class="chips">
+        <span class="chip">Agile (Scrum)</span><span class="chip">BDD (Gherkin)</span><span class="chip">SDLC</span><span class="chip">STLC</span><span class="chip">Test Case Design</span><span class="chip">Defect Management</span><span class="chip">QA Sign-off</span>
+      </div></div>
+      <div class="skill-row"><h3>Languages</h3><div class="chips">
+        <span class="chip">SQL</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Basic JavaScript</span><span class="chip">TypeScript</span><span class="chip">Python</span>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head"><span class="label">Certifications &amp; education</span><h2>Learning</h2></div>
+    <div class="certs">
+      <div class="cert"><h3>ISTQB Certified Tester Foundation Level (CTFL)</h3><span class="when">May 2021 · Credential ID 210505011</span></div>
+      <div class="cert"><h3>B.Sc., Faculty of Computers and Information</h3><span class="when">Helwan University · Sep 2014 – Jan 2019</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <div class="section-head"><span class="label">Contact</span><h2>Let’s talk</h2></div>
+    <p>I am looking for a Senior QA Engineer role. The best way to reach me is by email or LinkedIn.</p>
+    <div class="contact-row">
+      <span class="email" id="email">mostafakohel20@gmail.com</span>
+      <button class="btn ghost" id="copy-email" type="button">Copy email</button>
+      <a class="btn ghost" href="https://www.linkedin.com/in/mostafasayed1" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <p id="copy-status" role="status"></p>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">© 2026 Mostafa Sayed · Cairo, Egypt</div></footer>
+
+<script>
+document.getElementById("copy-email").addEventListener("click", function () {
+  var text = document.getElementById("email").textContent;
+  var status = document.getElementById("copy-status");
+  function fallback() {
+    var r = document.createRange(); r.selectNodeContents(document.getElementById("email"));
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    status.textContent = "Email selected. Press Ctrl+C to copy.";
+  }
+  try {
+    navigator.clipboard.writeText(text).then(function () { status.textContent = "Email copied."; }, fallback);
+  } catch (e) { fallback(); }
+});
+</script>
+</body>
+</html>
